@@ -1,10 +1,225 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Kayden Knapik Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kayden Knapik | Portfolio</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --primary: #2563eb; /* Blue */
+            --dark: #0f172a;    /* Dark Background */
+            --light: #f8fafc;   /* Text Color */
+            --card-bg: #1e293b; /* Card Background */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .social-links a {
+            color: var(--light);
+            font-size: 1.5rem;
+            margin-left: 15px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* Projects Section */
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            border-bottom: 2px solid var(--primary);
+            display: inline-block;
+        }
+        
+        .projects-wrapper {
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: left;
+            transition: transform 0.3s;
+            border: 1px solid #334155;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .project-card h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .tech-stack {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2rem; }
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello Dad I love you, you are the best dad ever.!</h1>
-    <p> Hi</p>
+
+    <div class="container">
+        <!-- Navigation & Contact Links -->
+        <nav>
+            <div class="logo">Kayden Knapik</div>
+            <div class="social-links">
+                <!-- Replace these with your actual URLS -->
+                <a href="https://github.com/YOUR_USERNAME" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/YOUR_USERNAME" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://youtube.com/YOUR_CHANNEL" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+        </nav>
+
+        <!-- Hero / About Me -->
+        <section class="hero">
+            <h1>Hi, I'm Kayden.</h1>
+            <p>
+                I'm a developer passionate about building cool software and creating content. 
+                Welcome to my digital portfolio.
+            </p>
+            <!-- Create a file named resume.pdf in your repo to make this work -->
+            <a href="resume.pdf" class="btn" target="_blank">Download Resume</a>
+        </section>
+
+        <!-- Projects -->
+        <div class="projects-wrapper">
+            <h2 class="section-title">My Projects</h2>
+            
+            <div class="project-grid">
+                
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <h3>Project Name 1</h3>
+                    <p class="tech-stack">Python, Flask, SQL</p>
+                    <p>A brief description of what this project does. Maybe it calculates something or automates a task.</p>
+                    <br>
+                    <a href="https://github.com/YOUR_USERNAME/project1" class="btn" target="_blank">View Code</a>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <h3>Project Name 2</h3>
+                    <p class="tech-stack">HTML, CSS, JavaScript</p>
+                    <p>Description of the second project. This one looks great on mobile devices!</p>
+                    <br>
+                    <a href="#" class="btn" target="_blank">Live Demo</a>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <h3>YouTube Tutorial</h3>
+                    <p class="tech-stack">Video Content</p>
+                    <p>A link to a specific tutorial series I made about coding.</p>
+                    <br>
+                    <a href="https://youtube.com" class="btn" target="_blank">Watch Video</a>
+                </div>
+
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Kayden Knapik. Built with HTML & CSS.</p>
+        </footer>
+    </div>
+
 </body>
 </html>
