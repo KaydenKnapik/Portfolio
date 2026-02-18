@@ -11,11 +11,14 @@
         /* --- CSS STYLES --- */
         :root {
             /* NEON GREEN THEME */
-            --primary: #0aff60;   /* Bright Neon Green */
-            --primary-dim: #05a33c; /* Darker Green for hover */
-            --dark: #0a0a0a;      /* Very Black Background */
-            --card-bg: #171717;   /* Slightly lighter black for cards */
-            --text: #e5e5e5;      /* White-ish text */
+            --primary: #0aff60;     /* Bright Neon Green */
+            --dark: #0a0a0a;        /* Very Black Background */
+            --card-bg: #111;        /* Dark card background */
+            --text: #e5e5e5;        /* White-ish text */
+            
+            /* The Glow Variable */
+            --glow: 0 0 20px rgba(10, 255, 96, 0.15); 
+            --glow-hover: 0 0 30px rgba(10, 255, 96, 0.4);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -25,20 +28,19 @@
             background-color: var(--dark);
             color: var(--text);
             line-height: 1.6;
-            overflow-x: hidden; /* Prevents side scrolling */
+            overflow-x: hidden;
         }
 
-        /* --- NAVIGATION (Full Width) --- */
+        /* --- NAVIGATION --- */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            /* This 5% padding pushes the content to the edges, 
-               but keeps it from touching the bezel */
-            padding: 25px 5%; 
+            padding: 30px 5%; 
             width: 100%;
-            position: absolute; /* Keeps it at the top */
+            position: absolute;
             top: 0;
+            z-index: 10;
         }
 
         .logo {
@@ -47,63 +49,70 @@
             color: var(--primary);
             text-transform: uppercase;
             letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(10, 255, 96, 0.5); /* Glowing Text */
         }
 
         .social-links a {
             color: var(--text);
             font-size: 1.5rem;
-            margin-left: 20px;
-            transition: color 0.3s, transform 0.3s;
+            margin-left: 25px;
+            transition: all 0.3s;
         }
 
         .social-links a:hover {
             color: var(--primary);
-            transform: scale(1.1); /* Slight pop effect */
+            text-shadow: 0 0 15px var(--primary); /* Icons Glow on hover */
+            transform: scale(1.1);
         }
 
-        /* --- HERO SECTION (Centered) --- */
+        /* --- HERO SECTION --- */
         .hero {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            min-height: 90vh; /* Takes up most of the screen */
+            min-height: 100vh; /* Full screen height */
             padding: 0 20px;
+            background: radial-gradient(circle at center, #111a13 0%, #0a0a0a 70%); /* Subtle background glow */
         }
 
-        /* Profile Image Styling */
         .profile-img {
-            width: 180px;  /* Size of the circle */
+            width: 180px;
             height: 180px;
-            object-fit: cover; /* Prevents stretching */
-            border-radius: 50%; /* Makes it a circle */
-            border: 4px solid var(--primary); /* Neon border */
-            box-shadow: 0 0 20px rgba(10, 255, 96, 0.4); /* Neon Glow */
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--primary);
+            box-shadow: 0 0 30px rgba(10, 255, 96, 0.3); /* Stronger Image Glow */
             margin-bottom: 30px;
+            animation: float 6s ease-in-out infinite; /* Floating animation */
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
         }
 
         .hero h1 {
             font-size: 3.5rem;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             line-height: 1.1;
+            text-shadow: 0 0 20px rgba(10, 255, 96, 0.1);
         }
 
-        .hero h1 span {
-            color: var(--primary);
-        }
+        .hero h1 span { color: var(--primary); }
 
-        /* The Disney Quote */
         .quote {
             font-style: italic;
             font-size: 1.1rem;
             color: var(--primary);
             margin-bottom: 25px;
-            opacity: 0.9;
+            text-shadow: 0 0 10px rgba(10, 255, 96, 0.3);
         }
 
-        .hero p.intro {
-            font-size: 1.2rem;
+        .intro {
+            font-size: 1.1rem;
             color: #a3a3a3;
             max-width: 600px;
             margin-bottom: 40px;
@@ -111,98 +120,109 @@
 
         .btn {
             display: inline-block;
-            background-color: var(--primary);
-            color: var(--dark); /* Black text works best on neon */
-            padding: 12px 30px;
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            padding: 12px 35px;
             text-decoration: none;
-            border-radius: 50px; /* Pill shape */
+            border-radius: 50px;
             font-weight: 700;
             transition: all 0.3s ease;
-            box-shadow: 0 0 15px rgba(10, 255, 96, 0.3);
+            box-shadow: 0 0 10px rgba(10, 255, 96, 0.1);
         }
 
         .btn:hover {
-            background-color: var(--text);
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+            background-color: var(--primary);
+            color: var(--dark);
+            box-shadow: 0 0 30px rgba(10, 255, 96, 0.6); /* Big Glow on Hover */
             transform: translateY(-3px);
         }
 
         /* --- PROJECTS SECTION --- */
         .projects-section {
-            padding: 80px 5%; /* Matches the nav alignment */
+            padding: 100px 5%;
         }
 
         .section-title {
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 60px;
+            color: var(--text);
         }
         
         .section-title span {
             border-bottom: 3px solid var(--primary);
+            padding-bottom: 10px;
+            text-shadow: 0 0 20px rgba(10, 255, 96, 0.2);
         }
 
         .project-grid {
             display: grid;
-            /* Auto-layout: Fits as many cards as possible */
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 40px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
+        /* --- THE GLOWING CARDS --- */
         .project-card {
             background-color: var(--card-bg);
             padding: 30px;
             border-radius: 15px;
-            border: 1px solid #333;
-            transition: transform 0.3s, border-color 0.3s;
+            border: 1px solid #222;
+            
+            /* This is the glow you were missing! */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
+            
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+            position: relative;
+            overflow: hidden;
         }
 
+        /* The Hover Effect */
         .project-card:hover {
             transform: translateY(-10px);
             border-color: var(--primary);
+            /* Massive Green Glow on Hover */
+            box-shadow: 0 0 30px rgba(10, 255, 96, 0.2); 
         }
 
         .project-card h3 {
             font-size: 1.5rem;
             margin-bottom: 10px;
-            color: var(--text);
+            color: var(--primary); /* Green Title again */
+            text-shadow: 0 0 10px rgba(10, 255, 96, 0.3);
         }
 
         .tech-stack {
-            font-size: 0.9rem;
-            color: var(--primary);
+            font-size: 0.85rem;
+            color: #888;
             margin-bottom: 20px;
             font-weight: 600;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .project-desc {
-            color: #a3a3a3;
+            color: #ccc;
             margin-bottom: 25px;
+            font-size: 0.95rem;
         }
 
-        /* --- FOOTER --- */
         footer {
             text-align: center;
-            padding: 40px 0;
-            color: #555;
-            font-size: 0.9rem;
-            border-top: 1px solid #222;
+            padding: 50px 0;
+            color: #444;
+            font-size: 0.8rem;
         }
 
-        /* Mobile Adjustments */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
-            .nav { padding: 20px; }
-            .profile-img { width: 140px; height: 140px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Full Width Navigation -->
     <nav>
         <div class="logo">Kayden Knapik</div>
         <div class="social-links">
@@ -212,16 +232,12 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
         
-        <!-- YOUR PHOTO HERE -->
-        <!-- Ensure you upload a photo named 'me.jpg' to your github folder -->
-        <img src="me.jpg" alt="Kayden Knapik" class="profile-img" onerror="this.src='https://via.placeholder.com/150'">
+        <!-- REMEMBER: Add your photo named 'me.jpeg' to the folder -->
+        <img src="me.jpeg" alt="Kayden Knapik" class="profile-img" onerror="this.src='https://via.placeholder.com/150'">
 
         <h1>Hi, I'm <span>Kayden.</span></h1>
-        
-        <!-- The Disney Quote -->
         <div class="quote">"It's kind of fun to do the impossible." — Walt Disney</div>
 
         <p class="intro">
@@ -232,21 +248,18 @@
         <a href="resume.pdf" class="btn" target="_blank">Download Resume</a>
     </section>
 
-    <!-- Projects Section -->
     <section class="projects-section">
         <h2 class="section-title"><span>My Projects</span></h2>
         
         <div class="project-grid">
             
-            <!-- Project 1 -->
             <div class="project-card">
                 <h3>Project Name 1</h3>
                 <p class="tech-stack">Python // Flask // SQL</p>
-                <p class="project-desc">A brief description of what this project does. This card is clickable and opens the code.</p>
+                <p class="project-desc">A brief description of what this project does. Hover over this card to see the neon glow effect!</p>
                 <a href="https://github.com/YOUR_USERNAME/project1" class="btn" target="_blank">View Code</a>
             </div>
 
-            <!-- Project 2 -->
             <div class="project-card">
                 <h3>Project Name 2</h3>
                 <p class="tech-stack">HTML // CSS // JS</p>
@@ -254,7 +267,6 @@
                 <a href="#" class="btn" target="_blank">Live Demo</a>
             </div>
 
-            <!-- Project 3 -->
             <div class="project-card">
                 <h3>YouTube Channel</h3>
                 <p class="tech-stack">Video Content</p>
