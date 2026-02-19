@@ -36,26 +36,28 @@
         h1 { font-size: 3rem; margin-bottom: 10px; color: var(--primary); }
         .subtitle { color: #888; font-size: 1.2rem; margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 20px;}
 
-        /* --- THE MEDIA FIX --- */
+        /* --- VERTICAL MEDIA ROW --- */
         .media-row {
             display: flex;
             gap: 20px; 
             margin-bottom: 40px;
             justify-content: center;
-            align-items: center;
         }
 
         .media-item {
-            width: 50%; /* Equal width */
+            /* They split the width 50/50 */
+            width: 50%; 
             
-            /* THIS IS THE MAGIC FIX: */
-            aspect-ratio: 16 / 9; /* Forces both to be Widescreen shape */
-            object-fit: contain;  /* Shows the WHOLE image (no cropping), adds black bars if needed */
+            /* TIKTOK / PHONE SHAPE (Vertical) */
+            aspect-ratio: 9 / 16; 
+            
+            /* ZOOMS IN TO FILL THE BOX (No Empty Space) */
+            object-fit: cover; 
             
             border-radius: 15px;
             border: 2px solid #333;
             box-shadow: 0 0 20px rgba(10, 255, 96, 0.15);
-            background-color: #000; /* The "Bars" will be black */
+            background-color: #000;
         }
 
         .content h2 { margin-top: 40px; margin-bottom: 15px; font-size: 1.8rem; color: #fff; }
@@ -73,7 +75,7 @@
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
             .media-row { flex-direction: column; }
-            .media-item { width: 100%; }
+            .media-item { width: 100%; aspect-ratio: 9/16; } /* Keep them tall on mobile too */
         }
     </style>
 </head>
@@ -124,9 +126,7 @@
                 - <strong>API Integration:</strong> Connects seamlessly with external services.
             </p>
 
-            <a href="https://github.com/YOUR_USERNAME/project1" class="btn" target="_blank">IsaacLab Code <i class="fab fa-github"></i></a>
-            <a href="https://github.com/YOUR_USERNAME/project1" class="btn" target="_blank">MuJuCo Lab Code <i class="fab fa-github"></i></a>
-            <a href="https://github.com/YOUR_USERNAME/project1" class="btn" target="_blank">View Report<i class="fab fa-github"></i></a>
+            <a href="https://github.com/YOUR_USERNAME/project1" class="btn" target="_blank">View Source Code <i class="fab fa-github"></i></a>
         </div>
     </div>
 
