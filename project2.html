@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BDX-R | Kayden Knapik</title>
+    <title>Booster T1 Custom Locomotion | Kayden Knapik</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
@@ -22,12 +22,10 @@
             padding-bottom: 50px;
         }
 
-        /* Simple Nav */
         nav { padding: 30px 5%; display: flex; justify-content: space-between; align-items: center; }
         .logo { font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; text-decoration: none; font-size: 1.2rem;}
         
-        /* Container */
-        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
         .back-btn {
             color: #888; text-decoration: none; margin-bottom: 20px; display: inline-block;
@@ -38,31 +36,64 @@
         h1 { font-size: 3rem; margin-bottom: 10px; color: var(--primary); }
         .subtitle { color: #888; font-size: 1.2rem; margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 20px;}
 
-        /* Main Image */
-        .main-img {
-            width: 100%;
-            height: auto;
-            border-radius: 15px;
-            border: 2px solid #333;
+        /* --- MEDIA ROW (Video + Photo) --- */
+        .media-row {
+            display: flex;
+            gap: 20px; 
             margin-bottom: 40px;
-            box-shadow: 0 0 20px rgba(10, 255, 96, 0.1);
+            justify-content: center;
         }
 
-        /* Content Areas */
-        .content h2 { margin-top: 40px; margin-bottom: 15px; font-size: 1.8rem; color: #fff; }
-        .content p { margin-bottom: 20px; color: #ccc; font-size: 1.1rem; }
+        .media-item {
+            width: 50%; 
+            aspect-ratio: 9 / 16; /* Assumes vertical phone format */
+            object-fit: cover; 
+            border-radius: 15px;
+            border: 2px solid #333;
+            box-shadow: 0 0 20px rgba(10, 255, 96, 0.15);
+            background-color: #000;
+        }
+
+        /* --- CONTENT STYLING --- */
+        .content h2 { margin-top: 50px; margin-bottom: 20px; font-size: 1.8rem; color: #fff; border-left: 4px solid var(--primary); padding-left: 15px; }
+        .content p { margin-bottom: 25px; color: #ccc; font-size: 1.05rem; text-align: justify; }
+        
+        .highlight { color: var(--primary); font-weight: 600; }
+
+        .achievement-box {
+            background: rgba(10, 255, 96, 0.05);
+            border: 1px solid #333;
+            border-left: 4px solid var(--primary);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+            color: #fff;
+            font-style: italic;
+        }
+
         .tech-list { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 30px; }
         .tech-tag { background: #111; border: 1px solid var(--primary); color: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; }
 
         .btn {
             display: inline-block; background-color: var(--primary); color: var(--dark);
             padding: 12px 35px; text-decoration: none; border-radius: 50px; font-weight: 700;
-            margin-top: 30px; transition: 0.3s;
+            margin-top: 20px; transition: 0.3s;
         }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 0 20px var(--primary); }
 
+        /* Disabled Button Style for "Coming Soon" */
+        .btn.disabled {
+            background-color: #333;
+            color: #888;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+        .btn.disabled:hover { transform: none; }
+
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
+            .media-row { flex-direction: column; }
+            .media-item { width: 100%; aspect-ratio: 9/16; }
         }
     </style>
 </head>
@@ -75,36 +106,52 @@
     <div class="container">
         <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
 
-        <h1>BDX-R</h1>
-        <p class="subtitle">An automated tool built with Python and Flask</p>
+        <h1>Booster T1</h1>
+        <p class="subtitle">Implementing custom RL walking policies in Isaac Lab.</p>
 
-        <!-- Use a high quality screenshot here -->
-        <img src="me.jpeg" alt="Project Screenshot" class="main-img" onerror="this.src='https://via.placeholder.com/800x400'">
+        <!-- SIDE BY SIDE MEDIA -->
+        <div class="media-row">
+            <video class="media-item" controls autoplay muted loop>
+                <source src="custom.mp4" type="video/mp4">
+            </video>
+            <img src="boostert1.jpeg" alt="Booster T1 Robot" class="media-item">
+        </div>
 
         <div class="content">
             <h2>About the Project</h2>
             <p>
-                Here is where you write the story. "I built this project because I wanted to solve X problem."
-                Talk about the challenges you faced and how you overcame them. This is the part recruiters actually read.
+                Booster Robotics originally provided reinforcement learning code using <strong>Isaac Gym</strong> to make the robots walk. Unfortunately, this framework is now deprecated. 
+            </p>
+            <p>
+                I took on the task of implementing the <span class="highlight">Booster T1</span> into **Isaac Lab** in order to develop our own custom RL walking policies. This migration allowed for more modern simulation capabilities and better long-term support.
+            </p>
+
+            <div class="achievement-box">
+                "I was able to successfully deploy <strong>Sim2Real</strong>, transferring the policy trained in simulation directly to the physical hardware."
+            </div>
+
+            <p>
+                Currently, this is a work in progress. I am now looking at using <span class="highlight">MuJoCo Lab</span> to further refine the policies and make the locomotion more robust in real-world environments.
             </p>
 
             <h2>Tech Stack Used</h2>
             <div class="tech-list">
+                <span class="tech-tag">Isaac Lab</span>
+                <span class="tech-tag">Isaac Gym (Legacy)</span>
                 <span class="tech-tag">Python</span>
-                <span class="tech-tag">Flask</span>
-                <span class="tech-tag">SQLAlchemy</span>
-                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Sim2Real</span>
+                <span class="tech-tag">MuJoCo</span>
             </div>
 
             <h2>Key Features</h2>
             <p>
-                - Feature 1: Description of feature.<br>
-                - Feature 2: Description of feature.<br>
-                - Feature 3: Description of feature.
+                - <strong>Modern Framework:</strong> Migrated from deprecated Isaac Gym to Isaac Lab.<br>
+                - <strong>Custom Locomotion:</strong> Developed unique walking gaits tailored to the T1.<br>
+                - <strong>Sim2Real Deployment:</strong> Validated physics simulation on real hardware.<br>
             </p>
 
-            <!-- Link to the actual code on GitHub -->
-            <a href="https://github.com/YOUR_USERNAME/project1" class="btn" target="_blank">View Source Code <i class="fab fa-github"></i></a>
+            <!-- Disabled Button for Future Code -->
+            <a href="#" class="btn disabled">Code Coming Soon <i class="fab fa-github"></i></a>
         </div>
     </div>
 
