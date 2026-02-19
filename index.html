@@ -18,6 +18,11 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        html {
+            /* This makes the jump to the projects section smooth */
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             background-color: var(--dark);
@@ -45,12 +50,31 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             text-shadow: 0 0 10px rgba(10, 255, 96, 0.5);
+            text-decoration: none;
         }
+
+        .nav-items {
+            display: flex;
+            align-items: center;
+        }
+
+        /* New "Work" Link in Nav */
+        .nav-link {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            margin-right: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+        .nav-link:hover { color: var(--primary); }
 
         .social-links a {
             color: var(--text);
-            font-size: 1.5rem;
-            margin-left: 25px;
+            font-size: 1.3rem;
+            margin-left: 20px;
             transition: all 0.3s;
         }
 
@@ -67,9 +91,10 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            min-height: 100vh; 
-            padding: 80px 20px 0 20px;
+            min-height: 100vh; /* Takes up full screen height */
+            padding: 80px 20px 20px 20px;
             background: radial-gradient(circle at center, #111a13 0%, #0a0a0a 70%);
+            position: relative; /* Needed for absolute positioning the arrow */
         }
 
         .profile-img {
@@ -134,6 +159,28 @@
             transform: translateY(-5px);
         }
 
+        /* --- SCROLL DOWN ARROW --- */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--primary);
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+            text-decoration: none;
+            opacity: 0.7;
+            transition: 0.3s;
+        }
+        
+        .scroll-indicator:hover { opacity: 1; }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateX(-50%) translateY(0);}
+            40% {transform: translateX(-50%) translateY(-15px);}
+            60% {transform: translateX(-50%) translateY(-7px);}
+        }
+
         /* --- PROJECTS SECTION --- */
         .projects-section {
             padding: 100px 5%;
@@ -162,7 +209,7 @@
 
         .project-card {
             background-color: var(--card-bg);
-            padding: 20px; /* Reduced padding slightly to fit image better */
+            padding: 20px; 
             border-radius: 15px;
             border: 1px solid #222;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
@@ -177,11 +224,10 @@
             box-shadow: 0 0 30px rgba(10, 255, 96, 0.2); 
         }
 
-        /* --- NEW THUMBNAIL STYLE --- */
         .project-thumb {
             width: 100%;
-            height: 200px; /* Fixed height for consistency */
-            object-fit: cover; /* Crops image without stretching */
+            height: 200px; 
+            object-fit: cover; 
             border-radius: 10px;
             margin-bottom: 20px;
             border: 1px solid #333;
@@ -221,17 +267,24 @@
             .intro { font-size: 1rem; }
             .profile-img { width: 180px; height: 180px; }
             .btn { padding: 12px 30px; font-size: 1rem; }
+            .nav-link { display: none; } /* Hide the text link on mobile to save space */
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">Kayden Knapik</div>
-        <div class="social-links">
-            <a href="https://github.com/YOUR_USERNAME" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://linkedin.com/in/YOUR_USERNAME" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://youtube.com/YOUR_CHANNEL" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="logo">Kayden Knapik</a>
+        
+        <div class="nav-items">
+            <!-- Added Link that jumps to projects -->
+            <a href="#my-work" class="nav-link">My Work</a>
+
+            <div class="social-links">
+                <a href="https://github.com/YOUR_USERNAME" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/YOUR_USERNAME" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
         </div>
     </nav>
 
@@ -244,23 +297,25 @@
             Welcome to my portfolio.
         </p>
         <a href="resume.pdf" class="btn" target="_blank">Download Resume</a>
+
+        <!-- BOUNCING ARROW ADDED HERE -->
+        <a href="#my-work" class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </a>
     </section>
 
-    <section class="projects-section">
+    <!-- Added ID="my-work" so the arrow knows where to go -->
+    <section class="projects-section" id="my-work">
         <h2 class="section-title"><span>My Projects</span></h2>
         
         <div class="project-grid">
             
             <!-- Project 1 -->
             <div class="project-card">
-                <!-- Add your thumbnail image here named project1.jpg -->
                 <img src="bdxr.jpeg" alt="Project 1" class="project-thumb" onerror="this.src='https://via.placeholder.com/300x200'">
-                
                 <h3>BDX-R</h3>
-                <p class="tech-stack">IsaacLab // RL // CAD // 3D Printing // CNC // Python // PyTorch</p>
-                <p class="project-desc">A custom bipedal robot inspired by Disney's BD-X Robots. I reverse engineered the BD-X robot to create my own in which I trained and deployed a walking RL policy  from IsaacLab successfully.</p>
-                
-                <!-- LINK TO THE NEW PAGE -->
+                <p class="tech-stack">IsaacLab // RL // CAD // 3D Printing // Python</p>
+                <p class="project-desc">A custom bipedal robot inspired by Disney's BD-X Robots. I reverse engineered the BD-X robot to create my own in which I trained and deployed a walking RL policy from IsaacLab successfully.</p>
                 <a href="project1.html" class="btn" style="font-size: 0.9rem; padding: 10px 25px;">View Project</a>
             </div>
 
@@ -275,11 +330,11 @@
 
              <!-- Project 3 -->
             <div class="project-card">
-                 <img src="robstride.jpeg" alt="Project 2" class="project-thumb" onerror="this.src='https://via.placeholder.com/300x200'">
-                <h3>Robstride Actuators with Python Control</h3>
+                 <img src="robstride.jpeg" alt="Project 3" class="project-thumb" onerror="this.src='https://via.placeholder.com/300x200'">
+                <h3>Robstride Actuators Control</h3>
                 <p class="tech-stack">Python // CAN</p>
                 <p class="project-desc">Created python classes that communicate with the Robstride actuators over CAN bus.</p>
-                <a href="project2.html" class="btn" style="font-size: 0.9rem; padding: 10px 25px;">View Project</a>
+                <a href="project3.html" class="btn" style="font-size: 0.9rem; padding: 10px 25px;">View Project</a>
             </div>
 
         </div>
