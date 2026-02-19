@@ -45,37 +45,53 @@
         }
 
         .media-item {
-            /* They split the width 50/50 */
             width: 50%; 
-            
-            /* TIKTOK / PHONE SHAPE (Vertical) */
             aspect-ratio: 9 / 16; 
-            
-            /* ZOOMS IN TO FILL THE BOX (No Empty Space) */
             object-fit: cover; 
-            
             border-radius: 15px;
             border: 2px solid #333;
             box-shadow: 0 0 20px rgba(10, 255, 96, 0.15);
             background-color: #000;
         }
 
-        .content h2 { margin-top: 40px; margin-bottom: 15px; font-size: 1.8rem; color: #fff; }
-        .content p { margin-bottom: 20px; color: #ccc; font-size: 1.1rem; }
+        /* --- TEXT CONTENT STYLING --- */
+        .content h2 { margin-top: 50px; margin-bottom: 20px; font-size: 1.8rem; color: #fff; border-left: 4px solid var(--primary); padding-left: 15px; }
+        
+        .content p { margin-bottom: 25px; color: #ccc; font-size: 1.05rem; text-align: justify; }
+        
+        /* New class for green text highlights */
+        .highlight { color: var(--primary); font-weight: 600; }
+        
+        /* New class for specific callouts */
+        .achievement-box {
+            background: rgba(10, 255, 96, 0.05);
+            border: 1px solid #333;
+            border-left: 4px solid var(--primary);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+            color: #fff;
+            font-style: italic;
+        }
+
         .tech-list { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 30px; }
         .tech-tag { background: #111; border: 1px solid var(--primary); color: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; }
 
+        .btn-container { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 30px; }
+
         .btn {
-            display: inline-block; background-color: var(--primary); color: var(--dark);
-            padding: 12px 35px; text-decoration: none; border-radius: 50px; font-weight: 700;
-            margin-top: 30px; transition: 0.3s;
+            display: inline-flex; align-items: center; gap: 10px;
+            background-color: var(--primary); color: var(--dark);
+            padding: 12px 30px; text-decoration: none; border-radius: 50px; font-weight: 700;
+            transition: 0.3s;
         }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 0 20px var(--primary); }
 
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
             .media-row { flex-direction: column; }
-            .media-item { width: 100%; aspect-ratio: 9/16; } /* Keep them tall on mobile too */
+            .media-item { width: 100%; aspect-ratio: 9/16; } 
+            .btn { width: 100%; justify-content: center; }
         }
     </style>
 </head>
@@ -93,7 +109,6 @@
 
         <!-- SIDE BY SIDE CONTAINER -->
         <div class="media-row">
-            
             <!-- 1. The Video -->
             <video class="media-item" controls autoplay muted loop>
                 <source src="bdxr.mp4" type="video/mp4">
@@ -101,17 +116,23 @@
 
             <!-- 2. The Photo -->
             <img src="bdx.jpeg" alt="BDX-R System" class="media-item">
-
         </div>
 
         <div class="content">
             <h2>About the Project</h2>
             <p>
-                After first seeing Disney showcase their BD-X droids, I knew I had to make one myself. I had never built a robot with reinforcmenet learning before, and so I decided to make this project my Bachelor End Project (BEP), a 16 week project at my university (TU/e). I quickly realized that there was no cler path for someone to follow on how to make a robot learn to walk with reinforcement learning and deploy it onto physical hardware. I solved this problem by creating a blueprint that anyone can follow if they are looking to make a bipedal robot learn to walk with RL. I was awarded a 9/10 for my project and was able to train the robot in simulation with NVIDIA's IsaacLab and deploy it onto the physical hardware. At the end of my project, I was able to see the robot take its first steps in the real world. This project is what ultimately sparked my passion for using RL to make robots walk.
+                After first seeing Disney showcase their BD-X droids, I knew I had to make one myself. I had never built a robot using <span class="highlight">Reinforcement Learning (RL)</span> before, so I decided to make this my <strong>Bachelor End Project (BEP)</strong>—a 16-week intensive at TU/e. 
             </p>
-                For the timespan of the project, I decided to exclude the head of the robot as it was unesecarry for locomotion, however I am working on currently adding it.
+            <p>
+                I quickly realized there was no clear path for an individual to make a bipedal robot learn to walk with RL and deploy it onto physical hardware. I solved this problem by creating a <span class="highlight">blueprint that anyone can follow</span>.
             </p>
-                The BDX-R, or the BDX-Robstride is the robot that I created with 10 Robstride actuators and a NVIDIA Jetson Orin Nano.
+
+            <div class="achievement-box">
+                "I was awarded a <span class="highlight">9/10</span> for my project... At the end of my project, I was able to see the robot take its first steps in the real world."
+            </div>
+
+            <p>
+                The <strong>BDX-R</strong> (BDX-Robstride) is built using 10 Robstride actuators and is powered by an <span class="highlight">NVIDIA Jetson Orin Nano</span>. This project was able to train the robot in simulation with NVIDIA's <strong>IsaacLab</strong> and successfully deploy the policy to the real world. While the head was excluded for locomotion testing, I am currently working on adding it to complete the look.
             </p>
 
             <h2>Tech Stack Used</h2>
@@ -120,17 +141,24 @@
                 <span class="tech-tag">CAD</span>
                 <span class="tech-tag">Python</span>
                 <span class="tech-tag">PyTorch</span>
+                <span class="tech-tag">NVIDIA Jetson</span>
             </div>
 
             <h2>Key Features</h2>
             <p>
                 - <strong>Fully Open Source:</strong> Anyone can build the robot themselves.<br>
-                - <strong>Off the Shelf Actuators:</strong> Utilizies easy to obtain actuators.<br>
+                - <strong>Off the Shelf Actuators:</strong> Utilizes easy to obtain hardware.<br>
             </p>
 
-            <a href="https://github.com/YOUR_USERNAME/project1" class="btn" target="_blank">View IsaacLab Code <i class="fab fa-github"></i></a>
-            <a href="https://github.com/YOUR_USERNAME/project1" class="btn" target="_blank">View MuJuCo Code <i class="fab fa-github"></i></a>
-            <a href="report.pdf" class="btn" target="_blank">View Research Paper <i class="fab fa-github"></i></a>
+            <div class="btn-container">
+                <a href="https://github.com/YOUR_USERNAME/project1" class="btn" target="_blank">IsaacLab Code <i class="fab fa-github"></i></a>
+                <a href="https://github.com/YOUR_USERNAME/project1" class="btn" target="_blank">MuJoCo Code <i class="fab fa-github"></i></a>
+                
+                <!-- PDF BUTTON: Updated to allow view/download -->
+                <a href="report.pdf" class="btn" target="_blank">
+                    View Research Paper <i class="fas fa-file-pdf"></i>
+                </a>
+            </div>
         </div>
     </div>
 
