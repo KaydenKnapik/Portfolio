@@ -38,14 +38,17 @@
         h1 { font-size: 3rem; margin-bottom: 10px; color: var(--primary); }
         .subtitle { color: #888; font-size: 1.2rem; margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 20px;}
 
-        /* Main Image */
-        .main-img {
+        /* --- VIDEO PLAYER STYLING --- */
+        /* Reused the .main-img class so it keeps the border and glow */
+        .main-media {
             width: 100%;
             height: auto;
             border-radius: 15px;
             border: 2px solid #333;
             margin-bottom: 40px;
-            box-shadow: 0 0 20px rgba(10, 255, 96, 0.1);
+            /* The Green Glow */
+            box-shadow: 0 0 20px rgba(10, 255, 96, 0.15);
+            background-color: #000;
         }
 
         /* Content Areas */
@@ -78,14 +81,24 @@
         <h1>BDX-R</h1>
         <p class="subtitle">An automated tool built with Python and Flask</p>
 
-        <!-- Use a high quality screenshot here -->
-        <img src="me.jpeg" alt="Project Screenshot" class="main-img" onerror="this.src='https://via.placeholder.com/800x400'">
+        <!-- VIDEO PLAYER -->
+        <!-- 
+             controls: Gives play/pause buttons
+             autoplay: Starts automatically
+             muted: Starts silent (browsers require this for autoplay)
+             loop: Plays over and over 
+        -->
+        <video class="main-media" controls autoplay muted loop>
+            <source src="bxr.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
 
         <div class="content">
             <h2>About the Project</h2>
             <p>
-                Here is where you write the story. "I built this project because I wanted to solve X problem."
-                Talk about the challenges you faced and how you overcame them. This is the part recruiters actually read.
+                This project was created to solve a specific issue in workflow automation. 
+                In the video above, you can see how the BDX-R engine processes data in real-time.
+                I focused heavily on performance optimization and clean architecture.
             </p>
 
             <h2>Tech Stack Used</h2>
@@ -98,9 +111,9 @@
 
             <h2>Key Features</h2>
             <p>
-                - Feature 1: Description of feature.<br>
-                - Feature 2: Description of feature.<br>
-                - Feature 3: Description of feature.
+                - <strong>Real-time Processing:</strong> Handles data inputs instantly.<br>
+                - <strong>Custom Dashboard:</strong> Visualizes metrics as seen in the demo.<br>
+                - <strong>API Integration:</strong> Connects seamlessly with external services.
             </p>
 
             <!-- Link to the actual code on GitHub -->
