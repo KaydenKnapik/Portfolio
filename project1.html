@@ -27,7 +27,7 @@
         .logo { font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; text-decoration: none; font-size: 1.2rem;}
         
         /* Container */
-        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; } /* Made container slightly wider to fit side-by-side */
 
         .back-btn {
             color: #888; text-decoration: none; margin-bottom: 20px; display: inline-block;
@@ -38,14 +38,22 @@
         h1 { font-size: 3rem; margin-bottom: 10px; color: var(--primary); }
         .subtitle { color: #888; font-size: 1.2rem; margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 20px;}
 
-        /* --- VIDEO PLAYER STYLING --- */
-        /* Reused the .main-img class so it keeps the border and glow */
-        .main-media {
-            width: 50%;
+        /* --- SIDE BY SIDE MEDIA --- */
+        .media-row {
+            display: flex;
+            gap: 20px; /* Space between the two */
+            margin-bottom: 40px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .media-item {
+            width: 50%; /* Each takes up half the space */
             height: auto;
+            max-height: 400px; /* Prevents them from getting too tall */
+            object-fit: cover; /* Ensures they fill the box nicely */
             border-radius: 15px;
             border: 2px solid #333;
-            margin-bottom: 40px;
             /* The Green Glow */
             box-shadow: 0 0 20px rgba(10, 255, 96, 0.15);
             background-color: #000;
@@ -64,8 +72,13 @@
         }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 0 20px var(--primary); }
 
+        /* Mobile Adjustments */
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
+            
+            /* Stack them on phone */
+            .media-row { flex-direction: column; }
+            .media-item { width: 100%; }
         }
     </style>
 </head>
@@ -81,23 +94,26 @@
         <h1>BDX-R</h1>
         <p class="subtitle">An automated tool built with Python and Flask</p>
 
-        <!-- VIDEO PLAYER -->
-        <!-- 
-             controls: Gives play/pause buttons
-             autoplay: Starts automatically
-             muted: Starts silent (browsers require this for autoplay)
-             loop: Plays over and over 
-        -->
-        <video class="main-media" controls autoplay muted loop>
-            <source src="bdxr.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+        <!-- SIDE BY SIDE CONTAINER -->
+        <div class="media-row">
+            
+            <!-- 1. The Video -->
+            <video class="media-item" controls autoplay muted loop>
+                <!-- Double check your file name is bdxr.mp4 or bxr.mp4 -->
+                <source src="bdxr.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <!-- 2. The Photo -->
+            <img src="bdx.jpeg" alt="BDX-R System" class="media-item">
+
+        </div>
 
         <div class="content">
             <h2>About the Project</h2>
             <p>
                 This project was created to solve a specific issue in workflow automation. 
-                In the video above, you can see how the BDX-R engine processes data in real-time.
+                Above, you can see the simulation running alongside the actual CAD model.
                 I focused heavily on performance optimization and clean architecture.
             </p>
 
