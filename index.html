@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- CSS STYLES --- */
         :root {
             --primary: #0aff60;     
             --dark: #0a0a0a;        
@@ -17,11 +16,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        html {
-            /* This makes the jump to the projects section smooth */
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -53,12 +48,7 @@
             text-decoration: none;
         }
 
-        .nav-items {
-            display: flex;
-            align-items: center;
-        }
-
-        /* New "Work" Link in Nav */
+        .nav-items { display: flex; align-items: center; }
         .nav-link {
             color: var(--text);
             text-decoration: none;
@@ -77,7 +67,6 @@
             margin-left: 20px;
             transition: all 0.3s;
         }
-
         .social-links a:hover {
             color: var(--primary);
             text-shadow: 0 0 15px var(--primary);
@@ -91,10 +80,10 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            min-height: 100vh; /* Takes up full screen height */
+            min-height: 100vh; 
             padding: 80px 20px 20px 20px;
             background: radial-gradient(circle at center, #111a13 0%, #0a0a0a 70%);
-            position: relative; /* Needed for absolute positioning the arrow */
+            position: relative;
         }
 
         .profile-img {
@@ -114,29 +103,10 @@
             100% { transform: translateY(0px); }
         }
 
-        .hero h1 {
-            font-size: 5.5rem;
-            margin-bottom: 20px;
-            line-height: 1;
-            text-shadow: 0 0 25px rgba(10, 255, 96, 0.15);
-        }
-
+        .hero h1 { font-size: 5.5rem; margin-bottom: 20px; line-height: 1; text-shadow: 0 0 25px rgba(10, 255, 96, 0.15); }
         .hero h1 span { color: var(--primary); }
-
-        .quote {
-            font-style: italic;
-            font-size: 1.6rem;
-            color: var(--primary);
-            margin-bottom: 30px;
-            text-shadow: 0 0 10px rgba(10, 255, 96, 0.3);
-        }
-
-        .intro {
-            font-size: 1.4rem;
-            color: #a3a3a3;
-            max-width: 800px;
-            margin-bottom: 50px;
-        }
+        .quote { font-style: italic; font-size: 1.6rem; color: var(--primary); margin-bottom: 30px; text-shadow: 0 0 10px rgba(10, 255, 96, 0.3); }
+        .intro { font-size: 1.4rem; color: #a3a3a3; max-width: 800px; margin-bottom: 50px; }
 
         .btn {
             display: inline-block;
@@ -151,7 +121,6 @@
             transition: all 0.3s ease;
             box-shadow: 0 0 15px rgba(10, 255, 96, 0.1);
         }
-
         .btn:hover {
             background-color: var(--primary);
             color: var(--dark);
@@ -159,7 +128,6 @@
             transform: translateY(-5px);
         }
 
-        /* --- SCROLL DOWN ARROW --- */
         .scroll-indicator {
             position: absolute;
             bottom: 30px;
@@ -172,9 +140,7 @@
             opacity: 0.7;
             transition: 0.3s;
         }
-        
         .scroll-indicator:hover { opacity: 1; }
-
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% {transform: translateX(-50%) translateY(0);}
             40% {transform: translateX(-50%) translateY(-15px);}
@@ -182,22 +148,9 @@
         }
 
         /* --- PROJECTS SECTION --- */
-        .projects-section {
-            padding: 100px 5%;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 60px;
-            color: var(--text);
-        }
-        
-        .section-title span {
-            border-bottom: 3px solid var(--primary);
-            padding-bottom: 10px;
-            text-shadow: 0 0 20px rgba(10, 255, 96, 0.2);
-        }
+        .projects-section { padding: 100px 5%; }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 60px; color: var(--text); }
+        .section-title span { border-bottom: 3px solid var(--primary); padding-bottom: 10px; text-shadow: 0 0 20px rgba(10, 255, 96, 0.2); }
 
         .project-grid {
             display: grid;
@@ -217,57 +170,39 @@
             overflow: hidden;
             text-align: left;
         }
+        .project-card:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: 0 0 30px rgba(10, 255, 96, 0.2); }
 
-        .project-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-            box-shadow: 0 0 30px rgba(10, 255, 96, 0.2); 
-        }
+        .project-thumb { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 20px; border: 1px solid #333; }
+        .project-card h3 { font-size: 1.5rem; margin-bottom: 10px; color: var(--primary); text-shadow: 0 0 10px rgba(10, 255, 96, 0.3); }
+        .tech-stack { font-size: 0.85rem; color: #888; margin-bottom: 15px; font-weight: 600; text-transform: uppercase; }
+        .project-desc { color: #ccc; margin-bottom: 25px; font-size: 0.95rem; }
 
-        .project-thumb {
-            width: 100%;
-            height: 200px; 
-            object-fit: cover; 
-            border-radius: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #333;
-        }
-
-        .project-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: var(--primary); 
-            text-shadow: 0 0 10px rgba(10, 255, 96, 0.3);
-        }
-
-        .tech-stack {
-            font-size: 0.85rem;
-            color: #888;
-            margin-bottom: 15px;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .project-desc {
-            color: #ccc;
-            margin-bottom: 25px;
-            font-size: 0.95rem;
-        }
-
-        footer {
+        /* --- CONTACT SECTION --- */
+        .contact-section {
+            margin-top: 100px;
+            padding: 80px 20px;
+            background: linear-gradient(180deg, var(--dark) 0%, #0f1a12 100%);
             text-align: center;
-            padding: 50px 0;
-            color: #444;
-            font-size: 0.8rem;
+            border-top: 1px solid #333;
         }
+
+        .contact-link {
+            font-size: 2rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+        .contact-link:hover { text-shadow: 0 0 25px var(--primary); transform: scale(1.05); }
+
+        footer { text-align: center; padding: 40px 0; color: #444; font-size: 0.8rem; background-color: #050505; }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 3rem; }
-            .quote { font-size: 1.2rem; }
-            .intro { font-size: 1rem; }
-            .profile-img { width: 180px; height: 180px; }
-            .btn { padding: 12px 30px; font-size: 1rem; }
-            .nav-link { display: none; } /* Hide the text link on mobile to save space */
+            .nav-link { display: none; }
+            .contact-link { font-size: 1.4rem; }
         }
     </style>
 </head>
@@ -275,11 +210,8 @@
 
     <nav>
         <a href="#" class="logo">Kayden Knapik</a>
-        
         <div class="nav-items">
-            <!-- Added Link that jumps to projects -->
             <a href="#my-work" class="nav-link">My Work</a>
-
             <div class="social-links">
                 <a href="https://github.com/YOUR_USERNAME" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="https://linkedin.com/in/YOUR_USERNAME" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -298,13 +230,11 @@
         </p>
         <a href="resume.pdf" class="btn" target="_blank">Download Resume</a>
 
-        <!-- BOUNCING ARROW ADDED HERE -->
         <a href="#my-work" class="scroll-indicator">
             <i class="fas fa-chevron-down"></i>
         </a>
     </section>
 
-    <!-- Added ID="my-work" so the arrow knows where to go -->
     <section class="projects-section" id="my-work">
         <h2 class="section-title"><span>My Projects</span></h2>
         
@@ -312,7 +242,7 @@
             
             <!-- Project 1 -->
             <div class="project-card">
-                <img src="bdxr.jpeg" alt="Project 1" class="project-thumb" onerror="this.src='https://via.placeholder.com/300x200'">
+                <img src="bdxr.jpeg" alt="Project 1" class="project-thumb">
                 <h3>BDX-R</h3>
                 <p class="tech-stack">IsaacLab // RL // CAD // 3D Printing // Python</p>
                 <p class="project-desc">A custom bipedal robot inspired by Disney's BD-X Robots. I reverse engineered the BD-X robot to create my own in which I trained and deployed a walking RL policy from IsaacLab successfully.</p>
@@ -321,7 +251,7 @@
 
             <!-- Project 2 -->
             <div class="project-card">
-                 <img src="boostert1.jpeg" alt="Project 2" class="project-thumb" onerror="this.src='https://via.placeholder.com/300x200'">
+                 <img src="boostert1.jpeg" alt="Project 2" class="project-thumb">
                 <h3>Booster T1 RL Locomotion</h3>
                 <p class="tech-stack">IsaacLab // MuJoCo // Python // PyTorch</p>
                 <p class="project-desc">Currently working on custom RL training for the Booster T1 Humanoid Robot utilizing IsaacLab and mjlab.</p>
@@ -330,14 +260,24 @@
 
              <!-- Project 3 -->
             <div class="project-card">
-                 <img src="robstride.jpeg" alt="Project 3" class="project-thumb" onerror="this.src='https://via.placeholder.com/300x200'">
+                 <img src="robstride.jpeg" alt="Project 3" class="project-thumb">
                 <h3>Robstride Actuators Control</h3>
-                <p class="tech-stack">Python // CAN</p>
-                <p class="project-desc">Created python classes that communicate with the Robstride actuators over CAN bus.</p>
+                <p class="tech-stack">Python // CAN // MIT Control</p>
+                <p class="project-desc">Open-source Python driver for controlling Robstride motors over CAN bus using MIT Control Mode.</p>
                 <a href="project3.html" class="btn" style="font-size: 0.9rem; padding: 10px 25px;">View Project</a>
             </div>
 
         </div>
+    </section>
+
+    <!-- CONTACT SECTION ADDED HERE -->
+    <section class="contact-section">
+        <h2 style="color: #fff; margin-bottom: 10px;">Let's Connect</h2>
+        <p style="color: #ccc;">Have a project in mind or want to talk robotics?</p>
+        
+        <a href="mailto:kaydenknapik@gmail.com" class="contact-link">
+            <i class="fas fa-envelope"></i> kaydenknapik@gmail.com
+        </a>
     </section>
 
     <footer>
