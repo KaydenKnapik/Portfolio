@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BDX-R | Kayden Knapik</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #0aff60;     
+            --dark: #0a0a0a;        
+            --text: #e5e5e5;        
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark);
+            color: var(--text);
+            line-height: 1.8;
+            padding-bottom: 50px;
+        }
+
+        /* Simple Nav */
+        nav { padding: 30px 5%; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; text-decoration: none; font-size: 1.2rem;}
+        
+        /* Container */
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+
+        .back-btn {
+            color: #888; text-decoration: none; margin-bottom: 20px; display: inline-block;
+            transition: color 0.3s;
+        }
+        .back-btn:hover { color: var(--primary); }
+
+        h1 { font-size: 3rem; margin-bottom: 10px; color: var(--primary); }
+        .subtitle { color: #888; font-size: 1.2rem; margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 20px;}
+
+        /* Main Image */
+        .main-img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            border: 2px solid #333;
+            margin-bottom: 40px;
+            box-shadow: 0 0 20px rgba(10, 255, 96, 0.1);
+        }
+
+        /* Content Areas */
+        .content h2 { margin-top: 40px; margin-bottom: 15px; font-size: 1.8rem; color: #fff; }
+        .content p { margin-bottom: 20px; color: #ccc; font-size: 1.1rem; }
+        .tech-list { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 30px; }
+        .tech-tag { background: #111; border: 1px solid var(--primary); color: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; }
+
+        .btn {
+            display: inline-block; background-color: var(--primary); color: var(--dark);
+            padding: 12px 35px; text-decoration: none; border-radius: 50px; font-weight: 700;
+            margin-top: 30px; transition: 0.3s;
+        }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 0 20px var(--primary); }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">Kayden Knapik</a>
+    </nav>
+
+    <div class="container">
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+
+        <h1>BDX-R</h1>
+        <p class="subtitle">An automated tool built with Python and Flask</p>
+
+        <!-- Use a high quality screenshot here -->
+        <img src="me.jpeg" alt="Project Screenshot" class="main-img" onerror="this.src='https://via.placeholder.com/800x400'">
+
+        <div class="content">
+            <h2>About the Project</h2>
+            <p>
+                Here is where you write the story. "I built this project because I wanted to solve X problem."
+                Talk about the challenges you faced and how you overcame them. This is the part recruiters actually read.
+            </p>
+
+            <h2>Tech Stack Used</h2>
+            <div class="tech-list">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Flask</span>
+                <span class="tech-tag">SQLAlchemy</span>
+                <span class="tech-tag">JavaScript</span>
+            </div>
+
+            <h2>Key Features</h2>
+            <p>
+                - Feature 1: Description of feature.<br>
+                - Feature 2: Description of feature.<br>
+                - Feature 3: Description of feature.
+            </p>
+
+            <!-- Link to the actual code on GitHub -->
+            <a href="https://github.com/YOUR_USERNAME/project1" class="btn" target="_blank">View Source Code <i class="fab fa-github"></i></a>
+        </div>
+    </div>
+
+</body>
+</html>
