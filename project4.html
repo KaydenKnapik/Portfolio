@@ -5,171 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HACK2026 Winner | Kayden Knapik</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --primary: #0aff60;
-            --dark: #0a0a0a;
-            --text: #e5e5e5;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--dark);
-            color: var(--text);
-            line-height: 1.8;
-            padding-bottom: 50px;
-        }
-
-        nav { padding: 30px 5%; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; text-decoration: none; font-size: 1.2rem; }
-
-        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
-
-        .back-btn {
-            color: #888; text-decoration: none; margin-bottom: 20px; display: inline-block;
-            transition: color 0.3s;
-        }
-        .back-btn:hover { color: var(--primary); }
-
-        h1 { font-size: 3rem; margin-bottom: 10px; color: var(--primary); }
-        .subtitle { color: #888; font-size: 1.2rem; margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 20px; }
-
-        /* --- HERO IMAGE --- */
-        .hero-img {
-            width: 100%;
-            max-height: 500px;
-            object-fit: cover;
-            border-radius: 15px;
-            border: 2px solid #333;
-            box-shadow: 0 0 30px rgba(10, 255, 96, 0.2);
-            margin-bottom: 40px;
-        }
-
-        /* --- WINNER CALLOUT --- */
-        .winner-box {
-            background: linear-gradient(135deg, rgba(10, 255, 96, 0.08), rgba(10, 255, 96, 0.02));
-            border: 1px solid rgba(10, 255, 96, 0.4);
-            border-left: 5px solid var(--primary);
-            padding: 25px 30px;
-            border-radius: 12px;
-            margin: 30px 0;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-        .winner-box .trophy { font-size: 2.5rem; }
-        .winner-box-text strong { font-size: 1.2rem; color: #fff; display: block; }
-        .winner-box-text span { color: #aaa; font-size: 0.95rem; }
-
-        /* --- CONTENT --- */
-        .content h2 { margin-top: 50px; margin-bottom: 20px; font-size: 1.8rem; color: #fff; border-left: 4px solid var(--primary); padding-left: 15px; }
-        .content p { margin-bottom: 25px; color: #ccc; font-size: 1.05rem; text-align: justify; }
-        .highlight { color: var(--primary); font-weight: 600; }
-
-        /* --- PHOTO GRID --- */
-        .photo-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin: 30px 0;
-        }
-        .photo-grid img {
-            width: 100%;
-            aspect-ratio: 4 / 3;
-            object-fit: cover;
-            border-radius: 10px;
-            border: 1px solid #333;
-            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-        }
-        .photo-grid img:hover {
-            transform: scale(1.03);
-            border-color: var(--primary);
-            box-shadow: 0 0 20px rgba(10, 255, 96, 0.2);
-        }
-
-        /* --- LIGHTBOX --- */
-        .lightbox {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.92);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-        .lightbox.active { display: flex; }
-        .lightbox img {
-            max-width: 90vw;
-            max-height: 90vh;
-            object-fit: contain;
-            border-radius: 10px;
-            box-shadow: 0 0 40px rgba(10,255,96,0.2);
-        }
-        .lightbox-close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            font-size: 2rem;
-            color: #fff;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-        .lightbox-close:hover { color: var(--primary); }
-
-        /* --- TECH TAGS --- */
-        .tech-list { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 30px; }
-        .tech-tag { background: #111; border: 1px solid var(--primary); color: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; }
-
-        /* --- BUTTONS --- */
-        .btn {
-            display: inline-flex; align-items: center; gap: 10px;
-            background-color: var(--primary); color: var(--dark);
-            padding: 12px 30px; text-decoration: none; border-radius: 50px; font-weight: 700;
-            transition: 0.3s;
-            margin-right: 15px;
-            margin-top: 10px;
-        }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 0 20px var(--primary); }
-        .btn-outline {
-            background-color: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-        .btn-outline:hover { background-color: var(--primary); color: var(--dark); }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
-            .photo-grid { grid-template-columns: repeat(2, 1fr); }
-            .winner-box { flex-direction: column; text-align: center; }
-        }
-        @media (max-width: 480px) {
-            .photo-grid { grid-template-columns: 1fr; }
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <nav>
-        <a href="index.html" class="logo">Kayden Knapik</a>
+        <a href="index.html" class="logo">Kayden<span>.</span></a>
     </nav>
 
     <div class="container">
         <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
 
-        <h1>HACK2026 — 1st Place</h1>
-        <p class="subtitle">ETH Robotics Club Hackathon &nbsp;·&nbsp; 48 hours &nbsp;·&nbsp; Zurich, 2026</p>
+        <div class="project-header">
+            <h1>HACK2026, 1st Place</h1>
+            <p class="subtitle">ETH Robotics Club Hackathon &nbsp;&middot;&nbsp; 48 hours &nbsp;&middot;&nbsp; Zurich, 2026</p>
+        </div>
 
-        <img src="hackathon.jpeg" alt="HACK2026 Winners on Stage" class="hero-img">
+        <img src="media/hack2026/hackathon.jpeg" alt="HACK2026 Winners on Stage" class="hero-img">
 
         <div class="winner-box">
-            <div class="trophy">🏆</div>
+            <div class="trophy">&#127942;</div>
             <div class="winner-box-text">
-                <strong>1st Place — HACK2026</strong>
-                <span>Selected from 500+ applicants &nbsp;·&nbsp; 48 people across Europe &nbsp;·&nbsp; Groups of 6 &nbsp;·&nbsp; 200+ person audience</span>
+                <strong>1st Place, HACK2026</strong>
+                <span>Selected from 500+ applicants &nbsp;&middot;&nbsp; 48 people across Europe &nbsp;&middot;&nbsp; Groups of 6 &nbsp;&middot;&nbsp; 200+ person audience</span>
             </div>
         </div>
 
@@ -177,15 +37,15 @@
 
             <h2>The Challenge</h2>
             <p>
-                Over 500 people applied to HACK2026 — I was selected as one of 48. I was assigned random teammates from across Europe and given 48 hours to build something meaningful. Going in, I honestly didn't expect to get accepted. 48 hours later, we were standing on stage as winners.
+                Over 500 people applied to HACK2026. I was selected as one of 48. I was assigned random teammates from across Europe and given 48 hours to build something meaningful. Going in, I honestly didn't expect to get accepted. 48 hours later, we were standing on stage as winners.
             </p>
             <p>
-                Our team targeted one of Europe's most pressing challenges: <span class="highlight">labour shortages</span>. We built a humanoid robot system designed to operate in real-world service environments — think restaurants, logistics, last-mile delivery.
+                Our team targeted one of Europe's most pressing challenges: <span class="highlight">labour shortages</span>. We built a humanoid robot system designed to operate in real-world service environments, think restaurants, logistics, last-mile delivery.
             </p>
 
             <h2>What We Built</h2>
             <p>
-                In 48 hours, we built a complete autonomous humanoid robot pipeline. The robot can <span class="highlight">navigate outdoors using GPS and compass data</span>, plan waypoints from plain typed instructions, and walk to its destination entirely on its own. It can also <span class="highlight">autonomously pick up and place objects</span> — demonstrated live by handling a Coke can and placing it into a bag.
+                In 48 hours, we built a complete autonomous humanoid robot pipeline. The robot can <span class="highlight">navigate outdoors using GPS and compass data</span>, plan waypoints from plain typed instructions, and walk to its destination entirely on its own. It can also <span class="highlight">autonomously pick up and place objects</span>, demonstrated live by handling a Coke can and placing it into a bag.
             </p>
             <p>
                 For the demonstration we showed it delivering a pizza box, showing a full end-to-end system from instruction to autonomous execution in a real-world use case.
@@ -193,12 +53,12 @@
 
             <h2>Photos</h2>
             <div class="photo-grid">
-                <img src="team.jpeg" alt="The Team" onclick="openLightbox(this.src)">
-                <img src="robot.jpeg" alt="The Robot" onclick="openLightbox(this.src)">
-                <img src="poster.jpeg" alt="Project Poster" onclick="openLightbox(this.src)">
-                <img src="outside.jpeg" alt="Outdoor Navigation" onclick="openLightbox(this.src)">
-                <img src="pickandplace.jpeg" alt="Pick and Place" onclick="openLightbox(this.src)">
-                <img src="pizzabox.jpeg" alt="Pizza Delivery Demo" onclick="openLightbox(this.src)">
+                <img src="media/hack2026/team.jpeg" alt="The Team" onclick="openLightbox(this.src)">
+                <img src="media/hack2026/robot.jpeg" alt="The Robot" onclick="openLightbox(this.src)">
+                <img src="media/hack2026/poster.jpeg" alt="Project Poster" onclick="openLightbox(this.src)">
+                <img src="media/hack2026/outside.jpeg" alt="Outdoor Navigation" onclick="openLightbox(this.src)">
+                <img src="media/hack2026/pickandplace.jpeg" alt="Pick and Place" onclick="openLightbox(this.src)">
+                <img src="media/hack2026/pizzabox.jpeg" alt="Pizza Delivery Demo" onclick="openLightbox(this.src)">
             </div>
 
             <h2>Tech Stack</h2>
@@ -216,22 +76,26 @@
                 Huge shoutout to my teammates: <span class="highlight">Cezar Solovastru, Miguel Huber, Benjamin Knöbel del Olmo, Xinran Wang, and Natcha Jengjirapas</span>. What we pulled off together in 48 hours is something I won't forget.
             </p>
             <p>
-                A big thank you to <strong>Martino Russi</strong> from Hugging Face for the help with LeRobot and imitation learning — that made a massive difference. And huge thanks to the <strong>ETH Robotics Club</strong> and <strong>Declan Shine</strong> for organizing such an incredible event.
+                A big thank you to <strong>Martino Russi</strong> from Hugging Face for the help with LeRobot and imitation learning, that made a massive difference. And huge thanks to the <strong>ETH Robotics Club</strong> and <strong>Declan Shine</strong> for organizing such an incredible event.
             </p>
 
-            <a href="https://www.linkedin.com/posts/kaydenknapik_i-still-cant-quite-believe-this-we-just-activity-7441790151661383680-bsw0" class="btn" target="_blank">
-                Read Full Post <i class="fab fa-linkedin"></i>
-            </a>
+            <div class="btn-container">
+                <a href="https://www.linkedin.com/posts/kaydenknapik_i-still-cant-quite-believe-this-we-just-activity-7441790151661383680-bsw0" class="btn" target="_blank">
+                    Read Full Post <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
 
         </div>
     </div>
 
-    <!-- LIGHTBOX -->
     <div class="lightbox" id="lightbox" onclick="closeLightbox()">
         <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
         <img id="lightbox-img" src="" alt="Photo">
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="main.js" defer></script>
     <script>
         function openLightbox(src) {
             document.getElementById('lightbox-img').src = src;

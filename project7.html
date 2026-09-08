@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dancing with Booster T1 | Kayden Knapik</title>
+    <meta name="description" content="Implementing BeyondMimic on the Booster T1 humanoid to retarget motion capture dance sequences into a real RL policy.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">Kayden<span>.</span></a>
+    </nav>
+
+    <div class="container">
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+
+        <div class="project-header">
+            <h1>Dancing with Booster T1</h1>
+            <p class="subtitle">Implementing BeyondMimic to retarget motion capture dance onto a real humanoid.</p>
+        </div>
+
+        <video class="hero-img" autoplay muted loop playsinline>
+            <source src="media/booster-t1-dance/booster-t1-dance.mp4" type="video/mp4">
+        </video>
+
+        <div class="content">
+            <h2>About the Project</h2>
+            <p>
+                Walking and kicking are goal-directed: the reward is forward progress or ball contact. Dancing is a different problem. There's no simple scalar reward for "danced well." Instead the target is an entire reference motion, and the policy has to track it closely while staying balanced on real hardware.
+            </p>
+            <p>
+                I used <span class="highlight">BeyondMimic</span> to take motion capture dance sequences and retarget them onto the Booster T1's own joint limits and proportions, then trained a tracking policy in <span class="highlight">IsaacLab</span> to reproduce that motion under the robot's real dynamics instead of just replaying keyframes.
+            </p>
+
+            <div class="achievement-box">
+                The result is a policy that reproduces a human dance reference on the Booster T1 in simulation, expressive whole-body motion instead of a scripted animation.
+            </div>
+
+            <p>
+                This builds directly on the retargeting and sim-to-real pipeline from the <a href="project6.html" class="highlight">kicking project</a>, applied to a much harder tracking problem. Getting this onto real hardware, not just in simulation, is the next step.
+            </p>
+
+            <h2>Tech Stack Used</h2>
+            <div class="tech-list">
+                <span class="tech-tag">BeyondMimic</span>
+                <span class="tech-tag">IsaacLab</span>
+                <span class="tech-tag">Motion Retargeting</span>
+                <span class="tech-tag">Reinforcement Learning</span>
+                <span class="tech-tag">Python</span>
+            </div>
+
+            <div class="btn-container">
+                <a href="#" class="btn disabled">Code Coming Soon <i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="main.js" defer></script>
+</body>
+</html>

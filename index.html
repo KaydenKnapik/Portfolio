@@ -3,295 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kayden Knapik | Portfolio</title>
+    <title>Kayden Knapik | Robotics & Reinforcement Learning</title>
+    <meta name="description" content="Kayden Knapik, robotics engineer building sim-to-real reinforcement learning systems for bipedal and humanoid robots.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --primary: #0aff60;     
-            --dark: #0a0a0a;        
-            --card-bg: #111;        
-            --text: #e5e5e5;        
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--dark);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* --- NAVIGATION --- */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 30px 5%; 
-            width: 100%;
-            position: absolute;
-            top: 0;
-            z-index: 10;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 0 10px rgba(10, 255, 96, 0.5);
-            text-decoration: none;
-        }
-
-        .nav-items { display: flex; align-items: center; }
-        .nav-link {
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 600;
-            margin-right: 30px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-        .nav-link:hover { color: var(--primary); }
-
-        .social-links a {
-            color: var(--text);
-            font-size: 1.3rem;
-            margin-left: 20px;
-            transition: all 0.3s;
-        }
-        .social-links a:hover {
-            color: var(--primary);
-            text-shadow: 0 0 15px var(--primary);
-            transform: scale(1.1);
-        }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            min-height: 100vh; 
-            padding: 80px 20px 20px 20px;
-            background: radial-gradient(circle at center, #111a13 0%, #0a0a0a 70%);
-            position: relative;
-        }
-
-        .profile-img {
-            width: 280px;
-            height: 280px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 4px solid var(--primary);
-            box-shadow: 0 0 40px rgba(10, 255, 96, 0.3); 
-            margin-bottom: 35px;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-
-        .hero h1 { font-size: 5.5rem; margin-bottom: 20px; line-height: 1; text-shadow: 0 0 25px rgba(10, 255, 96, 0.15); }
-        .hero h1 span { color: var(--primary); }
-        .quote { font-style: italic; font-size: 1.6rem; color: var(--primary); margin-bottom: 30px; text-shadow: 0 0 10px rgba(10, 255, 96, 0.3); }
-        .intro { font-size: 1.4rem; color: #a3a3a3; max-width: 800px; margin-bottom: 50px; }
-
-        .btn {
-            display: inline-block;
-            background-color: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-            padding: 15px 45px;
-            font-size: 1.2rem;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 15px rgba(10, 255, 96, 0.1);
-        }
-        .btn:hover {
-            background-color: var(--primary);
-            color: var(--dark);
-            box-shadow: 0 0 40px rgba(10, 255, 96, 0.6);
-            transform: translateY(-5px);
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: var(--primary);
-            font-size: 2rem;
-            animation: bounce 2s infinite;
-            text-decoration: none;
-            opacity: 0.7;
-            transition: 0.3s;
-        }
-        .scroll-indicator:hover { opacity: 1; }
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateX(-50%) translateY(0);}
-            40% {transform: translateX(-50%) translateY(-15px);}
-            60% {transform: translateX(-50%) translateY(-7px);}
-        }
-
-        /* --- PROJECTS SECTION --- */
-        .projects-section { padding: 100px 5%; }
-        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 60px; color: var(--text); }
-        .section-title span { border-bottom: 3px solid var(--primary); padding-bottom: 10px; text-shadow: 0 0 20px rgba(10, 255, 96, 0.2); }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .project-card {
-            background-color: var(--card-bg);
-            padding: 20px; 
-            border-radius: 15px;
-            border: 1px solid #222;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
-            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-            overflow: hidden;
-            text-align: left;
-        }
-        .project-card:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: 0 0 30px rgba(10, 255, 96, 0.2); }
-
-        .project-thumb { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 20px; border: 1px solid #333; }
-        .project-card h3 { font-size: 1.5rem; margin-bottom: 10px; color: var(--primary); text-shadow: 0 0 10px rgba(10, 255, 96, 0.3); }
-        .tech-stack { font-size: 0.85rem; color: #888; margin-bottom: 15px; font-weight: 600; text-transform: uppercase; }
-        .project-desc { color: #ccc; margin-bottom: 25px; font-size: 0.95rem; }
-
-        /* --- CONTACT SECTION --- */
-        .contact-section {
-            margin-top: 100px;
-            padding: 80px 20px;
-            background: linear-gradient(180deg, var(--dark) 0%, #0f1a12 100%);
-            text-align: center;
-            border-top: 1px solid #333;
-        }
-
-        .contact-link {
-            font-size: 2rem;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 700;
-            display: inline-block;
-            margin-top: 20px;
-            transition: 0.3s;
-        }
-        .contact-link:hover { text-shadow: 0 0 25px var(--primary); transform: scale(1.05); }
-
-        footer { text-align: center; padding: 40px 0; color: #444; font-size: 0.8rem; background-color: #050505; }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 3rem; }
-            .nav-link { display: none; }
-            .contact-link { font-size: 1.4rem; }
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <nav>
-        <a href="#" class="logo">Kayden Knapik</a>
+        <a href="#" class="logo">Kayden<span>.</span></a>
         <div class="nav-items">
-            <a href="#my-work" class="nav-link">My Work</a>
+            <a href="#work" class="nav-link">Work</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#contact" class="nav-link">Contact</a>
             <div class="social-links">
-                <a href="https://github.com/KaydenKnapik" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/kaydenknapik/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://www.youtube.com/@kaydenknapik" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://github.com/KaydenKnapik" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/kaydenknapik/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.youtube.com/@kaydenknapik" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
     </nav>
 
-    <section class="hero">
-        <img src="me.jpeg" alt="Kayden Knapik" class="profile-img" onerror="this.src='https://via.placeholder.com/150'">
-        <h1>Hi, I'm <span>Kayden.</span></h1>
-        <div class="quote">"It's kind of fun to do the impossible." — Walt Disney</div>
-        <p class="intro">
-            I'm a robotics engineer with a passion for reinforcement learning. 
-            Welcome to my portfolio.
-        </p>
-        <a href="resume.pdf" class="btn" target="_blank">Download Resume</a>
+    <section class="hero" style="background-image: url('wallpaper-web.jpg');">
+        <video class="hero-bg-video" muted loop playsinline aria-hidden="true">
+            <source src="media/hero-loop/bdx-r-video.mp4" type="video/mp4">
+        </video>
+        <video class="hero-bg-video" muted loop playsinline aria-hidden="true"></video>
 
-        <a href="#my-work" class="scroll-indicator">
+        <div class="hero-content">
+            <div class="eyebrow">Robotics Engineer &middot; Reinforcement Learning</div>
+            <h1>I build robots that <span class="accent-text">learn to move.</span></h1>
+            <p class="intro">
+                I design, build, and train bipedal robotic characters and humanoid robots, taking RL
+                policies from simulation in IsaacLab straight to real hardware.
+            </p>
+            <div class="hero-ctas">
+                <a href="#work" class="btn btn-solid">View My Work</a>
+                <a href="resume.pdf" class="btn" target="_blank">Download Resume</a>
+            </div>
+        </div>
+
+        <a href="#work" class="scroll-indicator" aria-label="Scroll to work">
             <i class="fas fa-chevron-down"></i>
         </a>
     </section>
 
-    <section class="projects-section" id="my-work">
-        <h2 class="section-title"><span>My Projects</span></h2>
-        
+    <section class="section" id="work">
+        <span class="section-eyebrow">Selected Work</span>
+        <h2 class="section-title">Projects</h2>
+
         <div class="project-grid">
-            
-            <!-- Project 1 -->
-            <div class="project-card">
-                <img src="bdxr.jpeg" alt="Project 1" class="project-thumb">
-                <h3>BDX-R</h3>
-                <p class="tech-stack">IsaacLab // RL // CAD // 3D Printing // Python</p>
-                <p class="project-desc">A custom bipedal robot inspired by Disney's BD-X Robots. I reverse engineered the BD-X robot to create my own in which I trained and deployed a walking RL policy from IsaacLab successfully.</p>
-                <a href="project1.html" class="btn" style="font-size: 0.9rem; padding: 10px 25px;">View Project</a>
+
+            <div class="project-card featured">
+                <video class="project-thumb" autoplay muted loop playsinline poster="media/bdx-r/bdxr.jpeg">
+                    <source src="media/bdx-r/bdx-r-video.mp4" type="video/mp4">
+                </video>
+                <div class="project-card-body">
+                    <h3>BDX-R</h3>
+                    <p class="tech-stack">ISAACLAB // RL // CAD // 3D PRINTING // PYTHON</p>
+                    <p class="project-desc">A custom bipedal robot inspired by Disney's BD-X Robots. I reverse engineered the BD-X to build my own, then trained and deployed a walking RL policy from IsaacLab to real hardware.</p>
+                    <a href="project1.html" class="btn btn-sm">View Project</a>
+                </div>
             </div>
 
-            <!-- Project 2 -->
             <div class="project-card">
-                 <img src="boostert1.jpeg" alt="Project 2" class="project-thumb">
-                <h3>Booster T1 RL Locomotion</h3>
-                <p class="tech-stack">IsaacLab // MuJoCo // Python // PyTorch</p>
-                <p class="project-desc">Currently working on custom RL training for the Booster T1 Humanoid Robot utilizing IsaacLab and mjlab.</p>
-                <a href="project2.html" class="btn" style="font-size: 0.9rem; padding: 10px 25px;">View Project</a>
+                <video class="project-thumb" autoplay muted loop playsinline poster="media/stompy/stompy-thumb.jpg">
+                    <source src="media/stompy/stompy-main.mp4" type="video/mp4">
+                </video>
+                <div class="project-card-body">
+                    <h3>Stompy</h3>
+                    <p class="tech-stack">REINFORCEMENT LEARNING // ROBSTRIDE // 3D PRINTING // CAD</p>
+                    <p class="project-desc">A fully 3D-printed bipedal robot built and taught to walk in 7 days for a Bambu Lab challenge, trained with RL and deployed to the real hardware.</p>
+                    <a href="project5.html" class="btn btn-sm">View Project</a>
+                </div>
             </div>
 
-             <!-- Project 3 -->
             <div class="project-card">
-                 <img src="robstride.jpeg" alt="Project 3" class="project-thumb">
-                <h3>Robstride Actuators Control</h3>
-                <p class="tech-stack">Python // CAN // MIT Control</p>
-                <p class="project-desc">Open-source Python driver for controlling Robstride motors over CAN bus using MIT Control Mode.</p>
-                <a href="project3.html" class="btn" style="font-size: 0.9rem; padding: 10px 25px;">View Project</a>
+                <video class="project-thumb" autoplay muted loop playsinline poster="media/booster-t1-walk/boostert1.jpeg">
+                    <source src="media/booster-t1-walk/booster-t1-locomotion.mp4" type="video/mp4">
+                </video>
+                <div class="project-card-body">
+                    <h3>Booster T1 RL Locomotion</h3>
+                    <p class="tech-stack">ISAACLAB // MUJOCO // PYTHON // PYTORCH</p>
+                    <p class="project-desc">Migrating Booster Robotics' deprecated Isaac Gym pipeline to IsaacLab, and building custom RL walking policies for the Booster T1 humanoid.</p>
+                    <a href="project2.html" class="btn btn-sm">View Project</a>
+                </div>
             </div>
 
-            <!-- Project 4 -->
             <div class="project-card">
-                <img src="hackathon.jpeg" alt="HACK2026" class="project-thumb">
-                <h3>🏆 HACK2026 — 1st Place</h3>
-                <p class="tech-stack">LeRobot // NVIDIA GR00T // Imitation Learning // GPS Nav</p>
-                <p class="project-desc">Won ETH Robotics Club's HACK2026 against 500+ applicants. Built a humanoid robot that autonomously navigates outdoors and handles objects — targeting Europe's labour shortage.</p>
-                <a href="project4.html" class="btn" style="font-size: 0.9rem; padding: 10px 25px;">View Project</a>
+                <video class="project-thumb" autoplay muted loop playsinline poster="media/booster-t1-kick/booster-kick-thumb.jpg">
+                    <source src="media/booster-t1-kick/booster-kick-robocup.mp4" type="video/mp4">
+                </video>
+                <div class="project-card-body">
+                    <h3>Booster T1, Kicking</h3>
+                    <p class="tech-stack">ISAACLAB // REINFORCEMENT LEARNING // SIM2REAL</p>
+                    <p class="project-desc">Training a Booster T1 humanoid to kick a ball, from IsaacLab simulation to a real RoboCup field.</p>
+                    <a href="project6.html" class="btn btn-sm">View Project</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <video class="project-thumb" autoplay muted loop playsinline>
+                    <source src="media/booster-t1-dance/booster-t1-dance.mp4" type="video/mp4">
+                </video>
+                <div class="project-card-body">
+                    <h3>Dancing with Booster T1</h3>
+                    <p class="tech-stack">BEYONDMIMIC // ISAACLAB // MOTION RETARGETING</p>
+                    <p class="project-desc">Implementing BeyondMimic on the Booster T1 to retarget motion capture dance sequences into a real RL policy.</p>
+                    <a href="project7.html" class="btn btn-sm">View Project</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="media/robstride/robstride.jpeg" alt="Robstride actuator control" class="project-thumb">
+                <div class="project-card-body">
+                    <h3>Robstride Actuators Control</h3>
+                    <p class="tech-stack">PYTHON // CAN BUS // MIT CONTROL</p>
+                    <p class="project-desc">Open-source Python driver for controlling Robstride motors over CAN bus using MIT Control Mode, now used by thousands of builders.</p>
+                    <a href="project3.html" class="btn btn-sm">View Project</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="media/hack2026/hackathon.jpeg" alt="HACK2026 winning team" class="project-thumb">
+                <div class="project-card-body">
+                    <h3>&#127942; HACK2026, 1st Place</h3>
+                    <p class="tech-stack">LEROBOT // NVIDIA GR00T // IMITATION LEARNING // GPS NAV</p>
+                    <p class="project-desc">Won ETH Robotics Club's HACK2026 against 500+ applicants. Built a humanoid robot that autonomously navigates outdoors and handles objects, targeting Europe's labour shortage.</p>
+                    <a href="project4.html" class="btn btn-sm">View Project</a>
+                </div>
+            </div>
+
+            <div class="project-card project-card-soon">
+                <div class="project-thumb project-thumb-placeholder">
+                    <i class="fas fa-hourglass-half"></i>
+                </div>
+                <div class="project-card-body">
+                    <h3>Coming Soon: Bipedal Robotic Character Design Internship</h3>
+                    <p class="tech-stack">CHARACTER DESIGN // BIPEDAL ROBOTICS</p>
+                    <p class="project-desc">Currently interning on bipedal robotic character design. Full writeup once I'm able to share details.</p>
+                    <a href="#" class="btn btn-sm disabled">Coming Soon</a>
+                </div>
             </div>
 
         </div>
     </section>
 
-    <!-- CONTACT SECTION ADDED HERE -->
-    <section class="contact-section">
-        <h2 style="color: #fff; margin-bottom: 10px;">Let's Connect</h2>
-        <p style="color: #ccc;">Have a project in mind or want to talk robotics?</p>
-        
+    <section class="section" id="about">
+        <span class="section-eyebrow">Background</span>
+        <h2 class="section-title">About</h2>
+        <p class="about-text">
+            I'm a robotics engineer focused on <strong>reinforcement learning</strong> and <strong>sim-to-real transfer</strong>,
+            taking walking policies from simulators like IsaacLab and MuJoCo and getting them running reliably on
+            physical actuators. My Bachelor End Project at <strong>TU/e</strong>, a from-scratch bipedal robot (BDX-R),
+            was graded <strong>9/10</strong> and walked in the real world by the end of it. I also document my
+            builds on <strong>YouTube</strong>, where my project videos have picked up over <strong>100K+</strong> views.
+        </p>
+
+        <div class="skills-grid">
+            <div class="skill-group">
+                <h3>Simulation & RL</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">IsaacLab</span>
+                    <span class="skill-tag">MuJoCo</span>
+                    <span class="skill-tag">mjlab</span>
+                    <span class="skill-tag">PyTorch</span>
+                    <span class="skill-tag">Isaac Gym</span>
+                    <span class="skill-tag">Sim2Real</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <h3>Hardware & Control</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">CAD</span>
+                    <span class="skill-tag">3D Printing</span>
+                    <span class="skill-tag">CAN Bus</span>
+                    <span class="skill-tag">Robstride Actuators</span>
+                    <span class="skill-tag">NVIDIA Jetson</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <h3>Perception & Autonomy</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">LeRobot</span>
+                    <span class="skill-tag">NVIDIA GR00T</span>
+                    <span class="skill-tag">Imitation Learning</span>
+                    <span class="skill-tag">GPS Navigation</span>
+                    <span class="skill-tag">Python</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <h2>Let's Connect</h2>
+        <p>Have a project in mind or want to talk robotics?</p>
+
         <a href="mailto:kaydenknapik@gmail.com" class="contact-link">
             <i class="fas fa-envelope"></i> kaydenknapik@gmail.com
         </a>
     </section>
 
     <footer>
-        <p>&copy; 2026 Kayden Knapik. Built with HTML & CSS.</p>
+        <p>&copy; 2026 Kayden Knapik.</p>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="main.js" defer></script>
 </body>
 </html>

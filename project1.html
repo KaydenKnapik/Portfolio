@@ -5,135 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BDX-R | Kayden Knapik</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --primary: #0aff60;     
-            --dark: #0a0a0a;        
-            --text: #e5e5e5;        
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--dark);
-            color: var(--text);
-            line-height: 1.8;
-            padding-bottom: 50px;
-        }
-
-        nav { padding: 30px 5%; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; text-decoration: none; font-size: 1.2rem;}
-        
-        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
-
-        .back-btn {
-            color: #888; text-decoration: none; margin-bottom: 20px; display: inline-block;
-            transition: color 0.3s;
-        }
-        .back-btn:hover { color: var(--primary); }
-
-        h1 { font-size: 3rem; margin-bottom: 10px; color: var(--primary); }
-        .subtitle { color: #888; font-size: 1.2rem; margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 20px;}
-
-        /* --- VERTICAL MEDIA ROW --- */
-        .media-row {
-            display: flex;
-            gap: 20px; 
-            margin-bottom: 40px;
-            justify-content: center;
-        }
-
-        .media-item {
-            width: 50%; 
-            aspect-ratio: 9 / 16; 
-            object-fit: cover; 
-            border-radius: 15px;
-            border: 2px solid #333;
-            box-shadow: 0 0 20px rgba(10, 255, 96, 0.15);
-            background-color: #000;
-        }
-
-        /* --- TEXT CONTENT STYLING --- */
-        .content h2 { margin-top: 50px; margin-bottom: 20px; font-size: 1.8rem; color: #fff; border-left: 4px solid var(--primary); padding-left: 15px; }
-        
-        .content p { margin-bottom: 25px; color: #ccc; font-size: 1.05rem; text-align: justify; }
-        
-        /* New class for green text highlights */
-        .highlight { color: var(--primary); font-weight: 600; }
-        
-        /* New class for specific callouts */
-        .achievement-box {
-            background: rgba(10, 255, 96, 0.05);
-            border: 1px solid #333;
-            border-left: 4px solid var(--primary);
-            padding: 20px;
-            border-radius: 8px;
-            margin: 30px 0;
-            color: #fff;
-            font-style: italic;
-        }
-
-        .tech-list { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 30px; }
-        .tech-tag { background: #111; border: 1px solid var(--primary); color: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; }
-
-        .btn-container { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 30px; }
-
-        .btn {
-            display: inline-flex; align-items: center; gap: 10px;
-            background-color: var(--primary); color: var(--dark);
-            padding: 12px 30px; text-decoration: none; border-radius: 50px; font-weight: 700;
-            transition: 0.3s;
-        }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 0 20px var(--primary); }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .media-row { flex-direction: column; }
-            .media-item { width: 100%; aspect-ratio: 9/16; } 
-            .btn { width: 100%; justify-content: center; }
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <nav>
-        <a href="index.html" class="logo">Kayden Knapik</a>
+        <a href="index.html" class="logo">Kayden<span>.</span></a>
     </nav>
 
     <div class="container">
         <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
 
-        <h1>BDX-R</h1>
-        <p class="subtitle">A low-cost bipedal robot inspired by Disney's BD-X droid.</p>
-
-        <!-- SIDE BY SIDE CONTAINER -->
-        <div class="media-row">
-            <!-- 1. The Video -->
-            <video class="media-item" controls autoplay muted loop>
-                <source src="bdxr.mp4" type="video/mp4">
-            </video>
-
-            <!-- 2. The Photo -->
-            <img src="bdx.jpeg" alt="BDX-R System" class="media-item">
+        <div class="project-header">
+            <h1>BDX-R</h1>
+            <p class="subtitle">A low-cost bipedal robot inspired by Disney's BD-X droid.</p>
         </div>
+
+        <video class="hero-img" autoplay muted loop playsinline poster="media/bdx-r/bdx.jpeg">
+            <source src="media/bdx-r/bdx-r-video.mp4" type="video/mp4">
+        </video>
 
         <div class="content">
             <h2>About the Project</h2>
             <p>
-                After first seeing Disney showcase their BD-X droids, I knew I had to make one myself. I had never built a robot using <span class="highlight">Reinforcement Learning (RL)</span> before, so I decided to make this my <strong>Bachelor End Project (BEP)</strong>,a 16-week project at TU/e. 
+                After first seeing Disney showcase their BD-X droids, I knew I had to make one myself. I had never built a robot using <span class="highlight">Reinforcement Learning (RL)</span> before, so I decided to make this my <strong>Bachelor End Project (BEP)</strong>, a 16-week project at TU/e.
             </p>
             <p>
                 I quickly realized there was no clear path for an individual to make a bipedal robot learn to walk with RL and deploy it onto physical hardware. I solved this problem by creating a <span class="highlight">blueprint that anyone can follow</span>.
             </p>
 
             <div class="achievement-box">
-                I was awarded a <span class="highlight">9/10</span> for my project... At the end of my project, I was able to see the robot take its first steps in the real world.
+                I was awarded a <span class="highlight">9/10</span> for my project. At the end of my project, I was able to see the robot take its first steps in the real world.
             </div>
 
             <p>
                 The <strong>BDX-R</strong> (BDX-Robstride) is built using 10 Robstride actuators and is powered by an <span class="highlight">NVIDIA Jetson Orin Nano</span>. This project was able to train the robot in simulation with NVIDIA's <strong>IsaacLab</strong> and successfully deploy the policy to the real world. While the head was excluded for locomotion testing, I am currently working on adding it to complete the look.
             </p>
+
+            <h2>First Steps</h2>
+            <p>The first time BDX-R ever walked, unedited.</p>
+            <div class="media-row">
+                <video class="media-item ratio-16-9" autoplay muted loop playsinline poster="media/bdx-r/bdx.jpeg">
+                    <source src="media/bdx-r/bdxr.mp4" type="video/mp4">
+                </video>
+                <video class="media-item ratio-16-9" autoplay muted loop playsinline>
+                    <source src="media/bdx-r/sim-training.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <h2>More Footage</h2>
+            <div class="media-row">
+                <video class="media-item ratio-16-9" autoplay muted loop playsinline>
+                    <source src="media/bdx-r/bdx-walk-real.mp4" type="video/mp4">
+                </video>
+                <img src="media/bdx-r/bdx.jpeg" alt="BDX-R System" class="media-item ratio-16-9">
+            </div>
 
             <h2>Tech Stack Used</h2>
             <div class="tech-list">
@@ -153,8 +81,6 @@
             <div class="btn-container">
                 <a href="https://github.com/BDX-R/BDX-R-IsaacLab" class="btn" target="_blank">IsaacLab Code <i class="fab fa-github"></i></a>
                 <a href="https://github.com/BDX-R/BDX-R-MjLab" class="btn" target="_blank">MuJoCo Code <i class="fab fa-github"></i></a>
-                
-                <!-- PDF BUTTON: Updated to allow view/download -->
                 <a href="report.pdf" class="btn" target="_blank">
                     View Research Paper <i class="fas fa-file-pdf"></i>
                 </a>
@@ -162,5 +88,8 @@
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="main.js" defer></script>
 </body>
 </html>

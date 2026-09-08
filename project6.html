@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booster T1, Kicking | Kayden Knapik</title>
+    <meta name="description" content="Training a Booster T1 humanoid to kick a ball, from IsaacLab simulation to real hardware.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">Kayden<span>.</span></a>
+    </nav>
+
+    <div class="container">
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+
+        <div class="project-header">
+            <h1>Booster T1, Kicking</h1>
+            <p class="subtitle">Teaching a full-size humanoid to kick a ball, from simulation to a RoboCup field.</p>
+        </div>
+
+        <video class="hero-img" autoplay muted loop playsinline poster="media/booster-t1-kick/booster-kick-thumb.jpg">
+            <source src="media/booster-t1-kick/booster-kick-robocup.mp4" type="video/mp4">
+        </video>
+
+        <div class="content">
+            <h2>About the Project</h2>
+            <p>
+                Following on from the Booster T1's <a href="project2.html" class="highlight">RL locomotion work</a>, I trained a kicking policy so the humanoid could strike a ball on command instead of just walking. The goal was a controlled, repeatable kick that survives the jump from simulation to a real field, not a scripted animation.
+            </p>
+            <p>
+                Kicking is a harder control problem than walking. The robot has to shift its full weight onto one leg, stay balanced through the strike, and recover cleanly afterward, all while a real leg swings with real momentum and real contact with the ball.
+            </p>
+
+            <h2>Motion Retargeting</h2>
+            <p>
+                The kicking motion started as reference data that had to be retargeted onto the Booster T1's own joint limits and proportions before it could be used as a training reference in <span class="highlight">IsaacLab</span>.
+            </p>
+            <div class="media-row">
+                <video class="media-item ratio-16-9" autoplay muted loop playsinline>
+                    <source src="media/booster-t1-kick/booster-kick-montage.mp4" type="video/mp4">
+                </video>
+                <video class="media-item ratio-16-9" autoplay muted loop playsinline>
+                    <source src="media/booster-t1-kick/kick-retargeting-montage.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <h2>Sim-to-Real</h2>
+            <p>
+                The first working policy held up in simulation and transferred to the real Booster T1, real ball, real contact.
+            </p>
+            <div class="media-row">
+                <video class="media-item ratio-16-9" autoplay muted loop playsinline>
+                    <source src="media/booster-t1-kick/booster-kick-real.mp4" type="video/mp4">
+                </video>
+                <video class="media-item ratio-16-9" autoplay muted loop playsinline>
+                    <source src="media/booster-t1-kick/booster-kick-sim-2.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="achievement-box">
+                Added target velocity and target direction to the observations and commands for the RL policy, so the kick could be aimed instead of just triggered.
+            </div>
+
+            <h2>Vision as Input</h2>
+            <p>
+                This is the first policy I've built that takes anything like vision as an input. I don't simulate the camera itself in IsaacLab, the policy is trained on the ball's relative position as a privileged observation. On the real Booster T1, that same signal comes from its onboard depth camera, so the robot can aim and kick the ball as long as it can actually see it.
+            </p>
+            <div class="media-row">
+                <video class="media-item ratio-16-9" autoplay muted loop playsinline style="width: 100%;">
+                    <source src="media/booster-t1-kick/booster-kick-improved-real.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <h2>Tech Stack Used</h2>
+            <div class="tech-list">
+                <span class="tech-tag">IsaacLab</span>
+                <span class="tech-tag">Reinforcement Learning</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">PyTorch</span>
+                <span class="tech-tag">Sim2Real</span>
+            </div>
+
+            <div class="btn-container">
+                <a href="#" class="btn disabled">Code Coming Soon <i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="main.js" defer></script>
+</body>
+</html>
